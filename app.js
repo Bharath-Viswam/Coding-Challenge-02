@@ -22,6 +22,30 @@ app.post('/submit', (req, res) => {
 	console.log(req.body.uname);
 	console.log(req.body.wname);
 	console.log(req.body.email);
+	var nodemailer = require('nodemailer');
+	var transporter = nodemailer.createTransport({
+		service: 'gmail',
+		auth: {
+			user: 'bharath7viswam@gmail.com',
+			pass: 'livethegame15'
+		}
+	});
+
+	var mailOptions = {
+		from: 'bharath7viswam@gmail.com',
+		to: req.body.email,
+		subject: 'Happy New Year 2022',
+		text: ` Hi ${req.body.wname}, ${req.body.uname} wishes you a happy new year 2022`
+		// html: '<h1>Hi Smartherd</h1><p>Your Messsage</p>'
+	};
+
+	transporter.sendMail(mailOptions, function(error, info) {
+		if (error) {
+			console.log(error);
+		} else {
+			console.log('Email sent: ' + info.response);
+		}
+	});
 });
 
 app.listen(port, () => {
