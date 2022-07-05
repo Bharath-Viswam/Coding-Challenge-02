@@ -2,7 +2,7 @@ const express = require('express');
 const app = new express();
 const path = require('path');
 const favicon = require('serve-favicon');
-
+const port = process.env.PORT || 4000;
 app.use(favicon(path.join('public', 'new-year.png')));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.urlencoded({ extended: true }));
@@ -24,6 +24,6 @@ app.post('/submit', (req, res) => {
 	console.log(req.body.email);
 });
 
-app.listen(3000, () => {
-	console.log('Server Running on port 3000');
+app.listen(port, () => {
+	console.log(`Server Ready on ${port}`);
 });
