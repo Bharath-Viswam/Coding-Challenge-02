@@ -28,7 +28,7 @@ app.post('/submit', (req, res) => {
 	});
 
 	var mailOptions = {
-		from: 'bharath7viswam@gmail.com',
+		from: 'newyearwishmaster@gmail.com',
 		to: req.body.email,
 		subject: 'Happy New Year 2022',
 		text: ` Hi ${req.body.wname}, ${req.body.uname} wishes you a happy new year 2022`
