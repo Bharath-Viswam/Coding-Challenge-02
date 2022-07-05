@@ -12,12 +12,7 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
 	res.render('index', {});
 });
-//! Design Modification - landing page send email button add, along with submit button
-//! Design Modification -on submit only redirect to the greetings page where the actual greeting is
-//! Design Modification - and when you click send email button in landing page, it should send the wishes on
-//! greetings page (the link with wish)
-//TODO 1.) Greetings page with animation,iframes research and create a beautiful greetings page
-//TODO 2.)email setup email button page click link redirect link should send wishes
+
 app.post('/submit', (req, res) => {
 	res.render('greetings', { uname: req.body.uname, wname: req.body.wname, email: req.body.email });
 	console.log(req.body.uname);
@@ -37,7 +32,7 @@ app.post('/submit', (req, res) => {
 		to: req.body.email,
 		subject: 'Happy New Year 2022',
 		text: ` Hi ${req.body.wname}, ${req.body.uname} wishes you a happy new year 2022`
-		// html: '<h1>Hi Smartherd</h1><p>Your Messsage</p>'
+		// html: ``
 	};
 
 	transporter.sendMail(mailOptions, function(error, info) {
