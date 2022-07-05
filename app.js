@@ -1,6 +1,7 @@
 const express = require('express');
 const app = new express();
 const path = require('path');
+var nodemailer = require('nodemailer');
 const favicon = require('serve-favicon');
 const port = process.env.PORT || 4000;
 app.use(favicon(path.join('public', 'new-year.png')));
