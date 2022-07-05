@@ -32,7 +32,6 @@ app.post('/submit', (req, res) => {
 		to: req.body.email,
 		subject: 'Happy New Year 2022',
 		text: ` Hi ${req.body.wname}, ${req.body.uname} wishes you a happy new year 2022`
-		// html: ``
 	};
 
 	transporter.sendMail(mailOptions, function(error, info) {
